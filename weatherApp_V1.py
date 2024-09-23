@@ -5,7 +5,7 @@ from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from matplotlib.figure import Figure
 from read_api_details import read_detail
 from format_API_output import get_detail
-
+import os
 
 def get_city_details(button):
     
@@ -100,8 +100,14 @@ window.title("Weather Forecast")
 # Set window size to 500x300
 window.geometry("500x500")
 
+# Get the directory where the script is located
+current_dir = os.path.dirname(os.path.abspath(__file__))
+
+# Build the relative path to a file located in the same directory
+image_file_path = os.path.join(current_dir, "data", "nature-ucp.png")
+
 # Load the background image
-background_image = PhotoImage(file="C:\\Users\\sendh\\Python\\VS Code Python\\Weather\\nature-ucp.png")  # Replace with your image file path
+background_image = PhotoImage(file=image_file_path)  # Replace with your image file path
 
 # Create a canvas to hold the image
 canvas = tk.Canvas(window, width=500, height=500)
